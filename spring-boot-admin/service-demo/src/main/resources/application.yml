@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: service-demo
+
+server:
+  port: 8083
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      # 向每个注册中心注册
+      defaultZone: http://localhost:8081/eureka/,http://localhost:8082/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
