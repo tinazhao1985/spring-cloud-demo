@@ -12,7 +12,6 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
     serviceUrl:
-      # 向每个注册中心注册
       defaultZone: http://localhost:8081/eureka/,http://localhost:8082/eureka/
 
 management:
