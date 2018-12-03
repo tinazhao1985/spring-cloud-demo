@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ztj</groupId>
-    <artifactId>spring-boot-admin-demo</artifactId>
+    <artifactId>spring-boot-dubbo-demo</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>eureka-server</module>
-        <module>admin-server</module>
-        <module>service-demo</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
+        <module>dubbo-api</module>
     </modules>
-
+    
 </project>
