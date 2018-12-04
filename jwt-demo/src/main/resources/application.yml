@@ -1,0 +1,14 @@
+jwt:
+  header: Authorization
+  secret: abcd^1234
+  expire: 1800
+
+spring:
+  application:
+    name: jwt-demo
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+
+server:
+  port: 8090

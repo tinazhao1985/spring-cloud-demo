@@ -46,10 +46,10 @@ public class AdminServerApplication {
 			successHandler.setTargetUrlParameter("redirectTo");
 
 			http.authorizeRequests()
-					.antMatchers(adminContextPath + "/login").permitAll()
+					.antMatchers(adminContextPath + "/auth").permitAll()
 					.anyRequest().authenticated()
 					.and()
-					.formLogin().loginPage(adminContextPath + "/login").successHandler(successHandler).and()
+					.formLogin().loginPage(adminContextPath + "/auth").successHandler(successHandler).and()
 					.logout().logoutUrl(adminContextPath + "/logout").and()
 					.httpBasic().and()
 					.csrf().disable();
