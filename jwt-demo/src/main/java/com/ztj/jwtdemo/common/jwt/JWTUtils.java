@@ -46,8 +46,8 @@ public class JWTUtils {
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(jwtProperties.getSecret()).parseClaimsJws(token);
 
         Claims body = claimsJws.getBody();
-        return new JWTInfo(body.getSubject(), StringUtils.objectToString(body.get(JWTConstant.USER_ACCOUNT)),
-                StringUtils.objectToString(body.get(JWTConstant.USER_NAME)));
+        return new JWTInfo(body.getSubject(), StringUtils.returnObjectValue(body.get(JWTConstant.USER_ACCOUNT)),
+                StringUtils.returnObjectValue(body.get(JWTConstant.USER_NAME)));
     }
 
     /**

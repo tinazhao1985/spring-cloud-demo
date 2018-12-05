@@ -1,7 +1,7 @@
-package com.ztj.jwtdemo.auth.service.impl;
+package com.ztj.jwtdemo.service.impl;
 
-import com.ztj.jwtdemo.auth.service.IAuthService;
-import com.ztj.jwtdemo.auth.vo.LoginRequest;
+import com.ztj.jwtdemo.service.IAuthService;
+import com.ztj.jwtdemo.vo.LoginRequest;
 import com.ztj.jwtdemo.common.bean.SuccessResponse;
 import com.ztj.jwtdemo.common.jwt.JWTInfo;
 import com.ztj.jwtdemo.common.jwt.JWTUtils;

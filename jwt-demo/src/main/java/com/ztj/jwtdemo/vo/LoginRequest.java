@@ -1,4 +1,4 @@
-package com.ztj.jwtdemo.auth.vo;
+package com.ztj.jwtdemo.vo;
 
 import lombok.Data;
 

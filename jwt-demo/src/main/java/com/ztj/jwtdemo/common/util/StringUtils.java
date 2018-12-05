@@ -5,7 +5,7 @@ package com.ztj.jwtdemo.common.util;
  */
 public class StringUtils {
 
-    public static String objectToString(Object obj) {
+    public static String returnObjectValue(Object obj) {
         if(null == obj) {
             return "";
         }
