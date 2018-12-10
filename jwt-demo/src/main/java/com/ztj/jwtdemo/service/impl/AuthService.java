@@ -1,5 +1,7 @@
 package com.ztj.jwtdemo.service.impl;
 
+import com.ztj.jwtdemo.common.bean.BaseResponse;
+import com.ztj.jwtdemo.common.bean.ErrorResponse;
 import com.ztj.jwtdemo.service.IAuthService;
 import com.ztj.jwtdemo.vo.LoginRequest;
 import com.ztj.jwtdemo.common.bean.SuccessResponse;
@@ -18,14 +20,19 @@ public class AuthService implements IAuthService {
     private JWTUtils jwtUtils;
 
     @Override
-    public SuccessResponse login(LoginRequest request) {
-        // todo: 验证登陆用户
+    public BaseResponse login(LoginRequest request) {
+        // 验证登陆用户
+        String userName = "admin";
+        String password = "admin";
+        if(userName.equals(request.getAccount()) && password.equals(request.getPassword())) {
+            // 生成token
+            JWTInfo info = new JWTInfo(request.getAccount(), "Admin", "Admin");
+            String token = jwtUtils.generateToken(info);
 
-        // 生成token
-        JWTInfo info = new JWTInfo(request.getAccount(), "Admin", "Admin");
-        String token = jwtUtils.generateToken(info);
+            return new SuccessResponse(token);
+        }
 
-        return new SuccessResponse(token);
+        return new ErrorResponse("login.error", null);
     }
 
     @Override

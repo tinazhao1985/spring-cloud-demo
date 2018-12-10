@@ -5,18 +5,18 @@ import com.ztj.jwtdemo.common.constant.CommonConstant;
 public class ErrorResponse extends BaseResponse {
 
     public ErrorResponse() {
-        this.setCode(CommonConstant.OP_FAILED);
-        String message = getMessage("operation.failed", null);
+        this.setCode(CommonConstant.OP_FAILED.getCode());
+        String message = getMessage(CommonConstant.OP_FAILED.getMessage(), null);
         this.setMessage(message);
     }
 
     public ErrorResponse(String message, Object[] params) {
-        this.setCode(CommonConstant.OP_FAILED);
+        this.setCode(CommonConstant.OP_FAILED.getCode());
         String msg = getMessage(message, params);
         this.setMessage(msg);
     }
 
-    public ErrorResponse(String code, String message, Object[] params) {
+    public ErrorResponse(Integer code, String message, Object[] params) {
         this.setCode(code);
         String msg = getMessage(message, params);
         this.setMessage(msg);

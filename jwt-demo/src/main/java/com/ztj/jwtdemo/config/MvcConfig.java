@@ -2,10 +2,10 @@ package com.ztj.jwtdemo.config;
 
 import com.ztj.jwtdemo.config.interceptor.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.*;
 
+@Configuration
 public class MvcConfig extends WebMvcConfigurationSupport {
     // 以下WebMvcConfigurerAdapter 比较常用的重写接口
     // /** 解决跨域问题 **/
@@ -33,11 +33,13 @@ public class MvcConfig extends WebMvcConfigurationSupport {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        /*
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
         registry.addResourceHandler("/templates/**")
                 .addResourceLocations("classpath:/templates/");
         super.addResourceHandlers(registry);
+        */
     }
 
     /**
@@ -51,6 +53,20 @@ public class MvcConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/login");
         super.addInterceptors(registry);
+    }
+
+    /**
+     * 解决跨域问题
+     *
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowCredentials(true)
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .maxAge(3600);
     }
 
 }

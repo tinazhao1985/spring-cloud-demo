@@ -9,14 +9,14 @@ public class SuccessResponse<T> extends BaseResponse {
     private T data;
 
     public SuccessResponse(T data) {
-        this.setCode(CommonConstant.OP_SUCCESS);
+        this.setCode(CommonConstant.OP_SUCCESS.getCode());
         this.setData(data);
-        String message = getMessage("operation.success", null);
+        String message = getMessage(CommonConstant.OP_SUCCESS.getMessage(), null);
         this.setMessage(message);
     }
 
     public SuccessResponse(T data, String message) {
-        this.setCode(CommonConstant.OP_SUCCESS);
+        this.setCode(CommonConstant.OP_SUCCESS.getCode());
         this.setData(data);
         this.setMessage(message);
     }

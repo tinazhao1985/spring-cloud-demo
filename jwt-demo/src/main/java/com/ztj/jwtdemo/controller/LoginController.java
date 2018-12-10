@@ -1,11 +1,12 @@
 package com.ztj.jwtdemo.controller;
 
+import com.ztj.jwtdemo.common.bean.BaseResponse;
 import com.ztj.jwtdemo.service.IAuthService;
 import com.ztj.jwtdemo.vo.LoginRequest;
-import com.ztj.jwtdemo.common.bean.SuccessResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,8 +24,8 @@ public class LoginController {
      * @param request
      * @return
      */
-    @RequestMapping("/login")
-    public SuccessResponse login(@RequestBody LoginRequest request) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public BaseResponse login(@RequestBody LoginRequest request) {
         return authService.login(request);
     }
 

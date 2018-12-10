@@ -32,7 +32,7 @@ public class JWTUtils {
                 .claim(JWTConstant.USER_DEPT, info.getUserDept())
                 .setIssuedAt(createdDate)
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.PS512, jwtProperties.getSecret())
+                .signWith(SignatureAlgorithm.HS512, jwtProperties.getSecret())
                 .compact();
     }
 

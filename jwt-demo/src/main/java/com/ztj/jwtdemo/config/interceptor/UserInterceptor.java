@@ -1,5 +1,7 @@
 package com.ztj.jwtdemo.config.interceptor;
 
+import com.ztj.jwtdemo.common.constant.CommonConstant;
+import com.ztj.jwtdemo.common.exception.BaseException;
 import com.ztj.jwtdemo.common.jwt.JWTInfo;
 import com.ztj.jwtdemo.common.jwt.JWTProperties;
 import com.ztj.jwtdemo.common.jwt.JWTUtils;
@@ -31,12 +33,13 @@ public class UserInterceptor implements HandlerInterceptor {
         // 是否携带token
         String token = request.getHeader(jwtProperties.getHeader());
         if(StringUtils.isBlank(token)) {
-            return false;
+            throw new BaseException(CommonConstant.NOT_LOGIN_ERROR.getCode(),
+                    CommonConstant.NOT_LOGIN_ERROR.getMessage());
         }
 
         // token是否过期
         if(jwtUtils.isTokenExpired(token)) {
-            return false;
+            throw new BaseException(CommonConstant.TOKEN_EXPIRED.getCode(), CommonConstant.TOKEN_EXPIRED.getMessage());
         }
 
         JWTInfo info = jwtUtils.getInfoFromToken(token);
@@ -52,7 +55,6 @@ public class UserInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        // todo
     }
 
     /**
@@ -61,6 +63,5 @@ public class UserInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-
     }
 }

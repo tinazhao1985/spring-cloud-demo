@@ -15,7 +15,7 @@ import java.util.Locale;
 @Slf4j
 public class BaseResponse {
 
-    private String code;
+    private Integer code;
 
     private String message;
 
