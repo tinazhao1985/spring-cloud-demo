@@ -8,7 +8,8 @@ public enum CommonConstant {
     OP_SUCCESS(0, "operation.success"),
     OP_FAILED(1, "operation.failed"),
     NOT_LOGIN_ERROR(2, "not.login"),
-    TOKEN_EXPIRED(3, "token.expired");
+    TOKEN_EXPIRED(3, "token.expired"),
+    USER_NOT_EXIST(4, "user.not.exists");
 
 
     CommonConstant(Integer code, String message) {

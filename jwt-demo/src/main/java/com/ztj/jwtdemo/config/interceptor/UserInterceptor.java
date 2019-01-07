@@ -6,6 +6,8 @@ import com.ztj.jwtdemo.common.jwt.JWTInfo;
 import com.ztj.jwtdemo.common.jwt.JWTProperties;
 import com.ztj.jwtdemo.common.jwt.JWTUtils;
 import com.ztj.jwtdemo.config.context.BaseContextHandler;
+import com.ztj.jwtdemo.dao.UserMapper;
+import com.ztj.jwtdemo.model.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +25,9 @@ public class UserInterceptor implements HandlerInterceptor {
 
     @Autowired
     private JWTUtils jwtUtils;
+
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      *  在Controller方法调用之前处理
@@ -43,6 +48,17 @@ public class UserInterceptor implements HandlerInterceptor {
         }
 
         JWTInfo info = jwtUtils.getInfoFromToken(token);
+        String account = info.getUserAccount();
+        User user = userMapper.selectByAccount(account);
+        if(null == user) {
+            throw new BaseException(CommonConstant.USER_NOT_EXIST.getCode(),
+                    CommonConstant.USER_NOT_EXIST.getMessage());
+        }
+
+        if(!user.getLoginStatus()) {
+            throw new BaseException(CommonConstant.NOT_LOGIN_ERROR.getCode(), CommonConstant.NOT_LOGIN_ERROR.getMessage());
+        }
+
         BaseContextHandler.setUserAccount(info.getUserAccount());
         BaseContextHandler.setUserName(info.getUserName());
         BaseContextHandler.setUserDept(info.getUserDept());
