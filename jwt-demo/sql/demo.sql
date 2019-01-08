@@ -2,8 +2,9 @@ CREATE DATABASE IF NOT EXISTS demo DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
 use demo;
 
-DROP TABLE IF EXISTS sys_user;
+SET NAMES utf8;
 
+DROP TABLE IF EXISTS sys_user;
 CREATE TABLE sys_user
 (
    account       VARCHAR(50) CHARSET utf8mb4 COLLATE utf8mb4_general_ci    NOT NULL COMMENT '账号',
@@ -16,3 +17,4 @@ ENGINE=InnoDB
 COMMENT='系统用户表'
 COLLATE=utf8mb4_general_ci;
 
+commit;

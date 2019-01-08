@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztj.jwtdemo.dao.ScheduleJobLogMapper">
+	<resultMap id="BaseResultMap" type="com.ztj.jwtdemo.model.ScheduleJobLog">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="job_id" jdbcType="INTEGER" property="jobId" />
+		<result column="bean_name" jdbcType="VARCHAR" property="beanName" />
+		<result column="method_name" jdbcType="VARCHAR" property="methodName" />
+		<result column="params" jdbcType="VARCHAR" property="params" />
+		<result column="status" jdbcType="TINYINT" property="status" />
+		<result column="error" jdbcType="VARCHAR" property="error" />
+		<result column="times" jdbcType="INTEGER" property="times" />
+		<result column="crt_time" jdbcType="TIMESTAMP" property="crtTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, job_id, bean_name, method_name, params, status, error, times, crt_time
+	</sql>
+
+	<insert id="insertSelective" parameterType="com.ztj.jwtdemo.model.ScheduleJobLog">
+		insert into schedule_job_log
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="jobId != null">
+				job_id,
+			</if>
+			<if test="beanName != null">
+				bean_name,
+			</if>
+			<if test="methodName != null">
+				method_name,
+			</if>
+			<if test="params != null">
+				params,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="error != null">
+				error,
+			</if>
+			<if test="times != null">
+				times,
+			</if>
+			<if test="crtTime != null">
+				crt_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="jobId != null">
+				#{jobId,jdbcType=INTEGER},
+			</if>
+			<if test="beanName != null">
+				#{beanName,jdbcType=VARCHAR},
+			</if>
+			<if test="methodName != null">
+				#{methodName,jdbcType=VARCHAR},
+			</if>
+			<if test="params != null">
+				#{params,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="error != null">
+				#{error,jdbcType=VARCHAR},
+			</if>
+			<if test="times != null">
+				#{times,jdbcType=INTEGER},
+			</if>
+			<if test="crtTime != null">
+				#{crtTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	
+</mapper>

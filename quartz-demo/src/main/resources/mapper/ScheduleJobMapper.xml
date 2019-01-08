@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztj.jwtdemo.dao.ScheduleJobMapper">
+	<resultMap id="BaseResultMap" type="com.ztj.jwtdemo.model.ScheduleJob">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="bean_name" jdbcType="VARCHAR" property="beanName" />
+		<result column="method_name" jdbcType="VARCHAR" property="methodName" />
+		<result column="params" jdbcType="VARCHAR" property="params" />
+		<result column="cron_expression" jdbcType="VARCHAR" property="cronExpression" />
+		<result column="status" jdbcType="TINYINT" property="status" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="crt_time" jdbcType="TIMESTAMP" property="crtTime" />
+		<result column="crt_user" jdbcType="VARCHAR" property="crtUser" />
+		<result column="crt_name" jdbcType="VARCHAR" property="crtName" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, bean_name, method_name, params, cron_expression, status, remark, crt_time, crt_user, crt_name
+	</sql>
+
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+			parameterType="com.ztj.jwtdemo.model.ScheduleJob">
+		insert into schedule_job
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="beanName != null">
+				bean_name,
+			</if>
+			<if test="methodName != null">
+				method_name,
+			</if>
+			<if test="params != null">
+				params,
+			</if>
+			<if test="cronExpression != null">
+				cron_expression,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="crtTime != null">
+				crt_time,
+			</if>
+			<if test="crtUser != null">
+				crt_user,
+			</if>
+			<if test="crtName != null">
+				crt_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="beanName != null">
+				#{beanName,jdbcType=VARCHAR},
+			</if>
+			<if test="methodName != null">
+				#{methodName,jdbcType=VARCHAR},
+			</if>
+			<if test="params != null">
+				#{params,jdbcType=VARCHAR},
+			</if>
+			<if test="cronExpression != null">
+				#{cronExpression,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="crtTime != null">
+				#{crtTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="crtUser != null">
+				#{crtUser,jdbcType=VARCHAR},
+			</if>
+			<if test="crtName != null">
+				#{crtName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateById" parameterType="com.ztj.jwtdemo.model.ScheduleJob">
+		update schedule_job
+		<set>
+			<if test="beanName != null">
+				bean_name = #{beanName,jdbcType=VARCHAR},
+			</if>
+			<if test="methodName != null">
+				method_name = #{methodName,jdbcType=VARCHAR},
+			</if>
+			<if test="params != null">
+				params = #{params,jdbcType=VARCHAR},
+			</if>
+			<if test="cronExpression != null">
+				cron_expression = #{cronExpression,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="crtTime != null">
+				crt_time = #{crtTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="crtUser != null">
+				crt_user = #{crtUser,jdbcType=VARCHAR},
+			</if>
+			<if test="crtName != null">
+				crt_name = #{crtName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateBatch"> 
+		update schedule_job set status = #{status,jdbcType=INTEGER}
+		where id in
+		<foreach collection="ids" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+	
+	<delete id="deleteBatch">
+		delete from schedule_job where id in
+		<foreach collection="list" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="selectById" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/>
+		from schedule_job where id = #{id}
+	</select>
+
+	<select id="selectJobListByIds" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from schedule_job
+		where id in
+		<foreach collection="list" item="id" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</select>
+
+	<select id="selectAll" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/>
+		from schedule_job
+	</select>
+
+	<select id="selectByParams" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/>
+		from schedule_job
+		<where>
+			1=1
+			<if test="beanName != null">
+				and bean_name like concat('%', #{beanName}, '%')
+			</if>
+			<if test="methodName != null">
+				and method_name like concat('%', #{methodName}, '%')
+			</if>
+			<if test="params != null">
+				and params like concat('%', #{params}, '%')
+			</if>
+			<if test="cronExpression != null">
+				and cron_expression like concat('%', #{cronExpression}, '%')
+			</if>
+			<if test="status != null">
+				and status = #{status},
+			</if>
+			<if test="remark != null">
+				and remark like concat('%', #{cronExpression}, '%')
+			</if>
+		</where>
+	</select>
+</mapper>
