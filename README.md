@@ -11,4 +11,8 @@ Demo of Spring Boot and Dubbo
 
 # jwt-demo
 Demo of jwt  
-Because JWTs cannot be expired on demand, login status is used for marking. It is better to store this status in a cache.  
+Because JWTs cannot be expired on demand, login status is used for marking. It is better to store this status in a cache.
+
+#quartz-demo
+Demo of quartz  
+Provide CRUD ( create, read, update and delete) actions for cron jobs.  
