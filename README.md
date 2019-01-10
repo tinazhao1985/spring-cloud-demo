@@ -16,3 +16,8 @@ Because JWTs cannot be expired on demand, login status is used for marking. It i
 #quartz-demo
 Demo of quartz  
 Provide CRUD ( create, read, update and delete) actions for cron jobs.  
+
+#dict-demo
+Demo of data dictionary  
+Loading all data dictionary into redis when the project is starting.
+

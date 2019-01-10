@@ -1,0 +1,37 @@
+jwt:
+  header: Authorization
+  secret: abcd^1234
+  expire: 1800
+
+spring:
+  application:
+    name: jwt-demo
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 1234
+
+server:
+  port: 8090
+
+mybatis:
+  basepackage: com.ztj.jwtdemo.dao
+  mapper-locations: "classpath*:mapper/*.xml"
+
+redis:
+  pool:
+    maxActive: 300
+    maxIdle: 100
+    maxWait: 1000
+  host: ${REDIS_HOST:localhost}
+  port:  ${REDIS_PORT:6379}
+  password:
+  timeout: 2000
+  # 服务或应用名
+  sysName: dict-demo
+  enable: true
+  database: 0
+
