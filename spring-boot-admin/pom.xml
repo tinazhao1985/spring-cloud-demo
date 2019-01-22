@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ztj</groupId>
-    <artifactId>spring-boot-admin-demo</artifactId>
+    <artifactId>spring-boot-admin</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
@@ -14,5 +14,11 @@
         <module>admin-server</module>
         <module>service-demo</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
 </project>
