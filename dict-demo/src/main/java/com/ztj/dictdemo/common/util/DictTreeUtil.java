@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.common.util;
+package com.ztj.dictdemo.common.util;
 
-import com.ztj.jwtdemo.vo.DictTree;
+import com.ztj.dictdemo.vo.DictTree;
 
 import java.util.ArrayList;
 import java.util.List;

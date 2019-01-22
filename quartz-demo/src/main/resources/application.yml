@@ -1,11 +1,6 @@
-jwt:
-  header: Authorization
-  secret: abcd^1234
-  expire: 1800
-
 spring:
   application:
-    name: jwt-demo
+    name: quartz-demo
   messages:
     basename: i18n/messages
     encoding: UTF-8
@@ -18,6 +13,6 @@ server:
   port: 8090
 
 mybatis:
-  basepackage: com.ztj.jwtdemo.dao
+  basepackage: com.ztj.quartzdemo.dao
   mapper-locations: "classpath*:mapper/*.xml"
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztj.jwtdemo.dao.ScheduleJobMapper">
-	<resultMap id="BaseResultMap" type="com.ztj.jwtdemo.model.ScheduleJob">
+<mapper namespace="com.ztj.quartzdemo.dao.ScheduleJobMapper">
+	<resultMap id="BaseResultMap" type="com.ztj.quartzdemo.model.ScheduleJob">
 		<id column="id" jdbcType="INTEGER" property="id" />
 		<result column="bean_name" jdbcType="VARCHAR" property="beanName" />
 		<result column="method_name" jdbcType="VARCHAR" property="methodName" />
@@ -18,7 +18,7 @@
 	</sql>
 
 	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
-			parameterType="com.ztj.jwtdemo.model.ScheduleJob">
+			parameterType="com.ztj.quartzdemo.model.ScheduleJob">
 		insert into schedule_job
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="beanName != null">
@@ -80,7 +80,7 @@
 		</trim>
 	</insert>
 
-	<update id="updateById" parameterType="com.ztj.jwtdemo.model.ScheduleJob">
+	<update id="updateById" parameterType="com.ztj.quartzdemo.model.ScheduleJob">
 		update schedule_job
 		<set>
 			<if test="beanName != null">

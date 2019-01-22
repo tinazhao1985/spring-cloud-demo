@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztj.jwtdemo.dao.DictMapper">
+<mapper namespace="com.ztj.dictdemo.dao.DictMapper">
 
-    <resultMap type="com.ztj.jwtdemo.model.Dict" id="BaseResultMap">
+    <resultMap type="com.ztj.dictdemo.model.Dict" id="BaseResultMap">
         <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="pcode" jdbcType="VARCHAR" property="pcode"/>
         <result column="name_cn" jdbcType="VARCHAR" property="nameCn"/>
@@ -51,7 +51,7 @@
         where code = #{code} and pcode = #{pcode}
     </select>
 
-    <insert id="insertSelective" parameterType="com.ztj.jwtdemo.model.Dict">
+    <insert id="insertSelective" parameterType="com.ztj.dictdemo.model.Dict">
         insert into base_dict
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="code != null">
@@ -101,7 +101,7 @@
         </trim>
     </insert>
 
-    <update id="updateSelective" parameterType="com.ztj.jwtdemo.model.Dict">
+    <update id="updateSelective" parameterType="com.ztj.dictdemo.model.Dict">
         update base_dict
         <set>
             <if test="nameCn != null">

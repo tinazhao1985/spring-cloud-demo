@@ -1,10 +1,10 @@
-package com.ztj.jwtdemo.controller;
+package com.ztj.dictdemo.controller;
 
-import com.ztj.jwtdemo.common.bean.BaseResponse;
-import com.ztj.jwtdemo.common.constant.DictConstant;
-import com.ztj.jwtdemo.model.Dict;
-import com.ztj.jwtdemo.service.IDictService;
-import com.ztj.jwtdemo.vo.DictTree;
+import com.ztj.dictdemo.common.bean.BaseResponse;
+import com.ztj.dictdemo.common.constant.DictConstant;
+import com.ztj.dictdemo.model.Dict;
+import com.ztj.dictdemo.service.IDictService;
+import com.ztj.dictdemo.vo.DictTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.listener;
+package com.ztj.dictdemo.listener;
 
-import com.ztj.jwtdemo.service.IDictService;
+import com.ztj.dictdemo.service.IDictService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.common.bean;
+package com.ztj.dictdemo.common.bean;
 
-import com.ztj.jwtdemo.common.constant.CommonConstant;
+import com.ztj.dictdemo.common.constant.CommonConstant;
 import lombok.Data;
 
 @Data

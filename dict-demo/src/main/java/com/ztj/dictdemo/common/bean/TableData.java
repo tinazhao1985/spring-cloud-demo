@@ -1,4 +1,4 @@
-package com.ztj.jwtdemo.common.bean;
+package com.ztj.dictdemo.common.bean;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.vo;
+package com.ztj.dictdemo.vo;
 
-import com.ztj.jwtdemo.model.Dict;
+import com.ztj.dictdemo.model.Dict;
 import lombok.Data;
 
 import java.util.List;

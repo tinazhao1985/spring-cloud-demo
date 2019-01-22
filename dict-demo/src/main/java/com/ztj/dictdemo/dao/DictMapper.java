@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.dao;
+package com.ztj.dictdemo.dao;
 
-import com.ztj.jwtdemo.model.Dict;
+import com.ztj.dictdemo.model.Dict;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,8 +1,8 @@
-package com.ztj.jwtdemo.service;
+package com.ztj.dictdemo.service;
 
-import com.ztj.jwtdemo.common.bean.BaseResponse;
-import com.ztj.jwtdemo.model.Dict;
-import com.ztj.jwtdemo.vo.DictTree;
+import com.ztj.dictdemo.common.bean.BaseResponse;
+import com.ztj.dictdemo.model.Dict;
+import com.ztj.dictdemo.vo.DictTree;
 
 import java.util.List;
 

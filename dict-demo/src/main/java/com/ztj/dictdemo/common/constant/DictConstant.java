@@ -1,4 +1,4 @@
-package com.ztj.jwtdemo.common.constant;
+package com.ztj.dictdemo.common.constant;
 
 /**
  * 数据字典常量

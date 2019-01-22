@@ -1,6 +1,6 @@
-package com.ztj.jwtdemo.common.bean;
+package com.ztj.dictdemo.common.bean;
 
-import com.ztj.jwtdemo.common.util.MessageUtil;
+import com.ztj.dictdemo.common.util.MessageUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.i18n.LocaleContextHolder;

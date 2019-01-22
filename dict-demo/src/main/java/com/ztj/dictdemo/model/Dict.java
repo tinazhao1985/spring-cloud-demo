@@ -1,4 +1,4 @@
-package com.ztj.jwtdemo.model;
+package com.ztj.dictdemo.model;
 
 import lombok.Data;
 
